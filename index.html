@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just Links</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .google-button {
+            background-color: #4285F4;
+            border: none;
+            color: #fff;
+            padding: 20px 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .google-button:hover {
+            box-shadow: 0 0 15px #4285F4, 0 0 25px #4285F4, 0 0 35px #4285F4, 0 0 45px #4285F4;
+        }
+
+        .server-button {
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .server-button:hover {
+            box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00, 0 0 35px #00ff00, 0 0 45px #00ff00;
+        }
+
+        .search-container {
+            margin-top: 20px;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #777;
+        }
+
+        .frame-container {
+            width: 80%;
+            height: calc(40% * 5);
+            margin-top: 30px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frame-url {
+            width: calc(100% - 200px);
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            margin: 10px;
+            float: left;
+        }
+
+        .browse-button-left, .browse-button-right {
+            padding: 10px 20px;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .browse-button-left {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .browse-button-right {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .browse-button-left:hover, .browse-button-right:hover {
+            background-color: #777;
+        }
+
+        .control-buttons {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .control-button {
+            padding: 10px 20px;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-button:hover {
+            background-color: #777;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #222;
+            color: #fff;
+        }
+
+        td {
+            background-color: #333;
+        }
+
+        .footer-text {
+            display: inline-block;
+            margin: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .footer-text:hover {
+            background-color: #00ff00;
+        }
+
+    </style>
+
+</head>
+<body>
+    <a href="https://www.google.com" class="google-button">Google</a>
+    <div class="container">
+
+    <div class="container">
+        <a href="https://www.isitiptv.com/online-iptv-player/" class="server-button">Online IPTV Player</a>
+        <a href="https://livepush.io/mp4-player/index.html" class="server-button">Online livepush Player</a>
+        <a href="https://sharedrop.me/" class="server-button">file&msg sharedrop.me (P2P)</a>
+    </div>
+
+    </div>
+    <div class="search-container">
+        <form id="searchForm" onsubmit="return searchSite()">
+            <input type="text" id="searchBox" class="search-box" placeholder="web...">
+            <button type="submit" class="search-button">Serach</button>
+        </form>
+    </div>
+
+  
+      <table>
+        <thead>
+            <tr>
+                <th>serach</th>
+                <th>videos</th>
+                <th>anime</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+<a href="https://www.google.com" class="footer-text">Google</a>
+<a href="https://www.bing.com" class="footer-text">Bing</a>
+<a href="https://www.yahoo.com" class="footer-text">Yahoo</a>
+<a href="https://www.duckduckgo.com" class="footer-text">DuckDuckGo</a>
+<a href="https://www.baidu.com" class="footer-text">Baidu</a>
+<a href="https://www.yandex.com" class="footer-text">Yandex</a>
+<a href="https://www.aol.com" class="footer-text">AOL</a>
+<a href="https://www.swagbucks.com" class="footer-text">Swagbucks</a>
+<a href="https://www.excite.com" class="footer-text">Excite</a>
+<a href="https://www.ask.com" class="footer-text">Ask.com</a>
+<a href="https://www.naver.com" class="footer-text">Naver</a>
+<a href="https://www.qwant.com" class="footer-text">Qwant</a>
+<a href="https://www.startpage.com" class="footer-text">StartPage</a>
+<a href="https://www.seznam.cz" class="footer-text">Seznam</a>
+<a href="https://www.yahoomail.com" class="footer-text">Yahoo Mail</a>
+<a href="https://www.mail.com" class="footer-text">Mail.com</a>
+<a href="https://www.gmx.com" class="footer-text">GMX</a>
+<a href="https://www.inbox.com" class="footer-text">Inbox.com</a>
+<a href="https://www.zillow.com" class="footer-text">Zillow</a>
+<a href="https://www.trulia.com" class="footer-text">Trulia</a>
+<a href="https://www.realtor.com" class="footer-text">Realtor.com</a>
+<a href="https://www.redfin.com" class="footer-text">Redfin</a>
+<a href="https://www.rakuten.com" class="footer-text">Rakuten</a>
+<a href="https://www.ebay.com" class="footer-text">eBay</a>
+<a href="https://www.amazon.com" class="footer-text">Amazon</a>
+<a href="https://www.walmart.com" class="footer-text">Walmart</a>
+<a href="https://www.target.com" class="footer-text">Target</a>
+<a href="https://www.bestbuy.com" class="footer-text">Best Buy</a>
+<a href="https://www.newegg.com" class="footer-text">Newegg</a>
+<a href="https://www.overstock.com" class="footer-text">Overstock</a>
+<a href="https://www.shopify.com" class="footer-text">Shopify</a>
+<a href="https://www.samsung.com" class="footer-text">Samsung</a>
+<a href="https://www.apple.com" class="footer-text">Apple</a>
+<a href="https://www.microsoft.com" class="footer-text">Microsoft</a>
+<a href="https://www.intel.com" class="footer-text">Intel</a>
+<a href="https://www.dell.com" class="footer-text">Dell</a>
+<a href="https://www.hp.com" class="footer-text">HP</a>
+<a href="https://www.lenovo.com" class="footer-text">Lenovo</a>
+<a href="https://www.asus.com" class="footer-text">Asus</a>
+<a href="https://www.nvidia.com" class="footer-text">NVIDIA</a>
+<a href="https://www.amd.com" class="footer-text">AMD</a>
+<a href="https://www.corsair.com" class="footer-text">Corsair</a>
+<a href="https://www.logitech.com" class="footer-text">Logitech</a>
+                </td>
+                <td>
+<a href="https://vimeo.com" class="footer-text">Vimeo</a>
+<a href="https://www.dailymotion.com" class="footer-text">Dailymotion</a>
+<a href="https://www.twitch.tv" class="footer-text">Twitch</a>
+<a href="https://www.netflix.com" class="footer-text">Netflix</a>
+<a href="https://www.hulu.com" class="footer-text">Hulu</a>
+<a href="https://www.primevideo.com" class="footer-text">Amazon Prime Video</a>
+<a href="https://www.disneyplus.com" class="footer-text">Disney+</a>
+<a href="https://tv.apple.com" class="footer-text">Apple TV+</a>
+<a href="https://www.vudu.com" class="footer-text">Vudu</a>
+<a href="https://www.crackle.com" class="footer-text">Crackle</a>
+<a href="https://www.hbomax.com" class="footer-text">HBO Max</a>
+<a href="https://www.paramountplus.com" class="footer-text">Paramount+</a>
+<a href="https://www.peacocktv.com" class="footer-text">Peacock</a>
+<a href="https://www.mubi.com" class="footer-text">Mubi</a>
+<a href="https://www.filmon.com" class="footer-text">FilmOn</a>
+<a href="https://www.kanopy.com" class="footer-text">Kanopy</a>
+<a href="https://www.popcornflix.com" class="footer-text">Popcornflix</a>
+<a href="https://www.tubi.tv" class="footer-text">Tubi</a>
+<a href="https://www.vidangel.com" class="footer-text">VidAngel</a>
+<a href="https://www.yahoo.com/entertainment" class="footer-text">Yahoo Entertainment</a>
+<a href="https://www.dazn.com" class="footer-text">DAZN</a>
+<a href="https://www.starz.com" class="footer-text">Starz</a>
+<a href="https://www.sundance.org" class="footer-text">Sundance</a>
+<a href="https://www.fandor.com" class="footer-text">Fandor</a>
+<a href="https://www.abc.com" class="footer-text">ABC</a>
+<a href="https://www.cbs.com" class="footer-text">CBS</a>
+<a href="https://www.nbc.com" class="footer-text">NBC</a>
+<a href="https://www.fox.com" class="footer-text">Fox</a>
+<a href="https://www.cwtv.com" class="footer-text">The CW</a>
+<a href="https://www.sling.com" class="footer-text">Sling TV</a>
+<a href="https://www.fubo.tv" class="footer-text">fuboTV</a>
+<a href="https://www.playstation.com/en-us/network/media/" class="footer-text">PlayStation Video</a>
+<a href="https://www.plex.tv" class="footer-text">Plex</a>
+<a href="https://www.vidio.com" class="footer-text">Vidio</a>
+<a href="https://www.wevideo.com" class="footer-text">WeVideo</a>
+<a href="https://www.streamingvideoprovider.com" class="footer-text">Streaming Video Provider</a>
+<a href="https://www.wowza.com" class="footer-text">Wowza</a>
+<a href="https://www.vzaar.com" class="footer-text">vzaar</a>
+<a href="https://www.youtube.com" class="footer-text">YouTube</a>
+<a href="https://www.redbull.com" class="footer-text">Red Bull TV</a>
+<a href="https://www.thunderbirdtv.com" class="footer-text">Thunderbird TV</a>
+
+                </td>
+                <td>
+<a href="https://www.crunchyroll.com" class="footer-text">Crunchyroll</a>
+<a href="https://www.funimation.com" class="footer-text">Funimation</a>
+<a href="https://www.netflix.com" class="footer-text">Netflix Anime</a>
+<a href="https://www.hulu.com" class="footer-text">Hulu Anime</a>
+<a href="https://www.disneyplus.com" class="footer-text">Disney+ Anime</a>
+<a href="https://www.animexx.de" class="footer-text">AnimeXx</a>
+<a href="https://www.aniwatch.me" class="footer-text">Aniwatch</a>
+<a href="https://www.kissanime.ru" class="footer-text">KissAnime</a>
+<a href="https://www.animelab.com" class="footer-text">AnimeLab</a>
+<a href="https://www.hidive.com" class="footer-text">HiDive</a>
+<a href="https://www.gogoanime.io" class="footer-text">GoGoAnime</a>
+<a href="https://www.9anime.to" class="footer-text">9Anime</a>
+<a href="https://www.animedao.com" class="footer-text">AnimeDao</a>
+<a href="https://www.animefreak.tv" class="footer-text">AnimeFreak</a>
+<a href="https://www.anime-planet.com" class="footer-text">Anime-Planet</a>
+<a href="https://www.watchanimeonline.io" class="footer-text">WatchAnimeOnline</a>
+<a href="https://www.animekisa.com" class="footer-text">AnimeKisa</a>
+<a href="https://www.tenshi-anime.com" class="footer-text">Tenshi Anime</a>
+<a href="https://www.myanimelist.net" class="footer-text">MyAnimeList</a>
+<a href="https://www.foxanime.net" class="footer-text">FoxAnime</a>
+<a href="https://www.animeout.com" class="footer-text">AnimeOut</a>
+<a href="https://www.animedepot.com" class="footer-text">AnimeDepot</a>
+<a href="https://www.animesub.com" class="footer-text">AnimeSub</a>
+<a href="https://www.animegate.com" class="footer-text">AnimeGate</a>
+<a href="https://www.animeshock.com" class="footer-text">AnimeShock</a>
+<a href="https://www.animewave.com" class="footer-text">AnimeWave</a>
+<a href="https://www.animecrave.com" class="footer-text">AnimeCrave</a>
+<a href="https://www.animethesaurus.com" class="footer-text">AnimeThesaurus</a>
+<a href="https://www.anime24.com" class="footer-text">Anime24</a>
+<a href="https://www.animebinge.com" class="footer-text">AnimeBinge</a>
+<a href="https://www.animeshrine.com" class="footer-text">AnimeShrine</a>
+<a href="https://www.animegogo.io" class="footer-text">AnimeGogo</a>
+<a href="https://www.animerebirth.com" class="footer-text">AnimeRebirth</a>
+<a href="https://www.animeprotv.com" class="footer-text">AnimeProTV</a>
+<a href="https://www.animecentral.com" class="footer-text">AnimeCentral</a>
+<a href="https://www.animeviewing.com" class="footer-text">AnimeViewing</a>
+<a href="https://www.animespot.com" class="footer-text">AnimeSpot</a>
+<a href="https://www.animeguru.com" class="footer-text">AnimeGuru</a>
+<a href="https://www.animewells.com" class="footer-text">AnimeWells</a>
+<a href="https://www.animelover.com" class="footer-text">AnimeLover</a>
+<a href="https://www.animetake.com" class="footer-text">AnimeTake</a>
+<a href="https://www.animetune.com" class="footer-text">AnimeTune</a>
+<a href="https://www.animefilm.com" class="footer-text">AnimeFilm</a>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function searchSite() {
+            let site = document.getElementById('searchBox').value;
+            if (site) {
+                if (!site.startsWith('http://') && !site.startsWith('https://')) {
+                    site = 'http://' + site;
+                }
+                window.location.href = site;
+            }
+            return false;
+        }
+      
+    </script>
+
+</body>
+</html>
